@@ -12,7 +12,7 @@ void leftView(Node *root,int level)
         leftView(root->right,level+1);
 
 }
-
+//
 void print(Node *root){
     leftView(root,1);
 }
