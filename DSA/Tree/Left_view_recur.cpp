@@ -16,7 +16,7 @@ void leftView(Node *root,int level)
 void print(Node *root){
     leftView(root,1);
 }
-
+// Main Function Begins Here
 int main(){
 
 Node *root= new Node(10);
