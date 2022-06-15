@@ -8,7 +8,7 @@ void addEdge(vector<int> adj[],int u, int v){
 
 }
 
-void BFS(vector<int> adj[],int v){
+void BFS(vector<int> adj[],int v){ 
 
         bool visited[v+1];
         for(int i=0;i<v;i++){
