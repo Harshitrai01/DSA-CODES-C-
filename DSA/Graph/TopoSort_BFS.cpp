@@ -22,7 +22,7 @@ void topological_sort(vector<int> adj[], int V, vector<int> indegree){
                 q.push(i);
             }
         }
-
+        
         while (!q.empty())
         {
             int u=q.front();
@@ -39,13 +39,21 @@ void topological_sort(vector<int> adj[], int V, vector<int> indegree){
 
 int main(){
     int V=5;
+
     vector<int> indegree(V,0);
     vector<int> adj[V];
-    addEdge(adj,0,2);
-    addEdge(adj,0,3);
+    // addEdge(adj,0,2);
+    // addEdge(adj,0,3);
+    // addEdge(adj,1,3);
+    // addEdge(adj,1,4);
+    // addEdge(adj,2,3);
+
+        addEdge(adj,0,1);
+ //   addEdge(adj,0,3);
     addEdge(adj,1,3);
-    addEdge(adj,1,4);
     addEdge(adj,2,3);
+    addEdge(adj,2,4);
+
 
     topological_sort(adj,V,indegree);
 
