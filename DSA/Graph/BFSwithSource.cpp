@@ -27,7 +27,6 @@ void BFS(vector<int> adj[],int v, int s){
                     q.push(v);
                 }
             }
-
         }
 
 
