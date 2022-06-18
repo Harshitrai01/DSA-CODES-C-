@@ -6,41 +6,35 @@ void addEdge(vector<pair<int,int>> adj[], int u, int v, int w){
     adj[v].push_back({u,w});
 }
 
-typedef pair<int,int> Pair;
 void dijikstra(vector<pair<int,int>> adj[], int V, int s){
 
-    priority_queue<Pair,vector<Pair>,greater<Pair>> pq;
-    vector<int> dist(V,INT_MAX);
-
-    // Insert source in pq and initialize its distance as zero.
-    pq.push({0,s});
+    vector<int>dist(V,INT_MAX);
+    vector<bool>fin(V,false);
     dist[s]=0;
 
-    while(!pq.empty()){
-        // Storing distacne as first in pair.
-        //  Extracting index of minimum distance in pq.
-        // Minimum distance will automatically come up.
-        int u=pq.top().second;
-        pq.pop();
+    for(int count=0;count<V;count++){
 
-        for(auto x: adj[u]){
-            int v=x.first;
-            int weight=x.second;
-
-            if(dist[v]>dist[u]+weight){
-                dist[v]=dist[u]+weight;
-                pq.push({dist[v],v});
-            }
-
+        int u=-1;
+        for(int i=0;i<V;i++){
+            if(!fin[i] and (u==-1 or dist[i]<dist[u]))
+                u=i;
         }
 
+        fin[u]=true;
+
+        for(auto x: adj[u]){
+            if(x.second!=0 and !fin[x.first]){
+                dist[x.first]=min(dist[x.first],dist[u]+x.second);
+            }
+        }
     }
+
+
 
     cout<<"Vertex"<<"    "<<"Distance From Source"<<endl;
     for(int i=0;i<V;i++){
         cout<<i<<"             "<<dist[i]<<endl;
     }
-
 
 }
 
