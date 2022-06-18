@@ -82,6 +82,7 @@ int main(){
     addEdge(adj,3,4);
 
     // Printing Strongly Connected Component.
+    cout<<"Strongly Connected Components are : "<<endl;
     kosaraju(adj,V);
 
 return 0;
