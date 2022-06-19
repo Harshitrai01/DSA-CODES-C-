@@ -76,7 +76,9 @@ void kosaraju(vector<int> adj[], int V)
 }
 
 int main()
-{
+{   
+    clock_t s,e;
+    s=clock();
     int V = 5;
     vector<int> adj[V];
 
@@ -89,6 +91,8 @@ int main()
     // Printing Strongly Connected Component.
     cout << "Strongly Connected Components are : " << endl;
     kosaraju(adj, V);
-
+    
+    e=clock();
+    cout<<endl<<"Time Taken: "<<fixed<<double(e-s) / double(CLOCKS_PER_SEC)<<setprecision(4);
     return 0;
 }
