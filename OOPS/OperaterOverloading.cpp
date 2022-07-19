@@ -91,7 +91,30 @@ class Fraction{
         return *this;
         // this has address of f1 block
         // *this is returning the whole block
-s
+
+    }
+
+    // Operator Overloading - Post-increment 
+    Fraction operator++(int){
+        Fraction fNew(num,den);
+        num=num+den;
+        simplify();
+        fNew.simplify();
+        return fNew;
+    }
+
+    // Operator Overloading - += 
+    Fraction& operator+=(Fraction const &f2){
+        int lcm=den*f2.den;
+        int x=lcm/den;
+        int y=lcm/f2.den;
+
+        int numer = x*num+(y* f2.num);
+        num=numer;
+        den=lcm;
+        simplify();
+        return *this;
+        
     }
 
     // Making getnum() a constant function. So that it can be accessed by constant object.
@@ -139,5 +162,17 @@ int main(){
     Fraction f7=++(++f1);
     f1.print();
     f7.print();
+    Fraction f8=f1++;
+    f1.print();
+    f8.print();
+
+    f1+=f2;
+    f1.print();
+    f2.print();
+
+    (f1+=f2)+=f2;
+
+    f1.print();
+    f2.print();
 
 }
