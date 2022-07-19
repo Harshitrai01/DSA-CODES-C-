@@ -1,6 +1,7 @@
 #include<iostream>
 using namespace std;
 
+
 class Fraction{
     private:
 
@@ -8,6 +9,9 @@ class Fraction{
     int den;
 
     public:
+    Fraction(){
+
+    }
 
     Fraction (int num, int den){
         this->num=num;
@@ -15,8 +19,8 @@ class Fraction{
 
     }
 
-    void print(){
-        cout<<num<<" / "<<den<<endl;
+    void print() const{
+        cout<<num<<" / "<<den<<endl;  // In place of num you can also write "this->num".
     } 
 
     void simplify(){
@@ -41,6 +45,23 @@ class Fraction{
 
         simplify();
 
+    }
+
+    // Making getnum() a constant function. So that it can be accessed by constant object.
+    int getnum() const{
+        return num;
+    }
+
+    int getden() const{
+        return den;
+    }
+
+    void setnum(int n){
+        num=n;
+    }
+
+    void setden(int d){
+        den=d;
     }
 
 

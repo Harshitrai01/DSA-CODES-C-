@@ -20,8 +20,5 @@ int main(){
     s1.getAge();
     s1.setRoll(12);
     s1.display();
-    
-
-    
 
 }

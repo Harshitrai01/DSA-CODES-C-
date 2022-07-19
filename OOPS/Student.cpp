@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 class Student{
-    private:
+    private: // By default Private
     int age;
 
     public:
